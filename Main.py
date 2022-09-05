@@ -5,76 +5,70 @@ def __init__(s,x):
 s.data=x
 s.next=None
 
-class stackList:
+class queueList:
 
 def __init__(self):
+self.front=None
+self.rear=None
 
-self.top=None
-def push(self,x):
+def enqueue(self,n):
+N d d ( )
 
-n=node(x)
-n.next=self.top
-self.top=n
+newNode = node(n)
 
-def displayIO(self):
+if(self.front == None):
+self.front = newNode
 
-self.displayInorder1(self.top)
-
-def displayInorder1(self,t):
-
-if t!=None:
-
-self.displayInorder1(t.next)
-print(t.data)
-
-def display(self):
-
-if self.top==None:
-
-print("Stack has no element")
+return
 
 else:
 
-temp=self.top
+temp = self.front
+while(temp.next != None):
+
+temp = temp.next
+temp.next = newNode
+
+def display(self):
+
+if self.front==None:
+
+print("stack is empty")
+
+else:
+
+temp=self.front
 while temp!=None:
 
 print(temp.data)
 temp=temp.next
 
-def pop(self):
+def dequeue(self):
+temp=self.rear
+self.front=self.front.next
 
-if self.top==None:
-
-print("Stack has no element")
-
-else:
-
-pops = self.top
-self.top = self.top.next
-pops.next = None
-return pops.data
-
-sul=stackList()
+ql=queueList()
 while(1):
 
-print("1.Push,\n2.pop,\n3.Display In_order,\n4.Display in last in first out order,\n5.
-h=int(input("enter your choice to be done:"))
-if h==1:
+print("1.Enqueue
 
-x=int(input("Enter the data to be pushed:"))
-sul.push(x)
+2.Dequeue
 
-elif h==2:
+ch=int(input("Enter your choice:"))
+if ch==1:
 
-sul.pop()
+3.Display
 
-elif h==3:
+n=int(input("Enter the data to be pushed:"))
+ql.enqueue(n)
 
-sul.displayIO()
+elif ch==2:
 
-elif h==4:
+ql.dequeue()
 
-sul.display()
+elif ch==3:
+
+ql.display()
 
 else:
 
