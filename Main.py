@@ -1,67 +1,81 @@
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.previous = self
-        self.next = self
+class node:
 
+def __init__(s,x):
 
-class DoublyCircularLinkedList:
-    def __init__(self):
-        self.head = None
-        self.count = 0
+s.data=x
+s.next=None
 
-    def add_at_tail(self, data) -> bool:
-        # Write code here
+class stackList:
 
-    def add_at_head(self, data) -> bool:
-        # Write code here
+def __init__(self):
 
-    def add_at_index(self, index, data) -> bool:
-        # Write code here
+self.top=None
+def push(self,x):
 
-    def get(self, index) -> int:
-        # Write code here
+n=node(x)
+n.next=self.top
+self.top=n
 
-    def delete_at_index(self, index) -> bool:
-        # Write code here
+def displayIO(self):
 
-    def get_previous_next(self, index) -> list:
-        # Write code here
+self.displayInorder1(self.top)
 
+def displayInorder1(self,t):
 
-# Do not change the following code
-operations = []
-for specific_operation in input().split(','):
-    operations.append(specific_operation.strip())
-input_data = input()
-data = []
-iteration_count = 0
+if t!=None:
 
-for item in input_data.split(', '):
-    inner_list = []
-    if item.isnumeric():
-        data.append(int(item))
-    elif item.startswith('['):
-        item = item[1:-1]
-        for letter in item.split(','):
-            if letter.isnumeric():
-                inner_list.append(int(letter))
-        data.append(inner_list)
+self.displayInorder1(t.next)
+print(t.data)
 
-obj = DoublyCircularLinkedList()
-result = []
-for i in range(len(operations)):
-    if operations[i] == "add_at_head":
-        result.append(obj.add_at_head(data[i]))
-    elif operations[i] == "add_at_tail":
-        result.append(obj.add_at_tail(data[i]))
-    elif operations[i] == "add_at_index":
-        result.append(obj.add_at_index(int(data[i][0]), data[i][1]))
-    elif operations[i] == "get":
-        result.append(obj.get(data[i]))
-    elif operations[i] == "get_previous_next":
-        result.append(obj.get_previous_next(data[i]))
-    elif operations[i] == 'delete_at_index':
-        result.append(obj.delete_at_index(data[i]))
+def display(self):
 
-print(result)
+if self.top==None:
+
+print("Stack has no element")
+
+else:
+
+temp=self.top
+while temp!=None:
+
+print(temp.data)
+temp=temp.next
+
+def pop(self):
+
+if self.top==None:
+
+print("Stack has no element")
+
+else:
+
+pops = self.top
+self.top = self.top.next
+pops.next = None
+return pops.data
+
+sul=stackList()
+while(1):
+
+print("1.Push,\n2.pop,\n3.Display In_order,\n4.Display in last in first out order,\n5.
+h=int(input("enter your choice to be done:"))
+if h==1:
+
+x=int(input("Enter the data to be pushed:"))
+sul.push(x)
+
+elif h==2:
+
+sul.pop()
+
+elif h==3:
+
+sul.displayIO()
+
+elif h==4:
+
+sul.display()
+
+else:
+
+break
